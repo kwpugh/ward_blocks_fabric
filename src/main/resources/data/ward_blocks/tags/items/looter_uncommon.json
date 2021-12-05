@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:spider_eye",
+    "minecraft:magma_cream",
+    "minecraft:diamond",
+    "minecraft:quartz",
+    "minecraft:lapis_lazuli",
+    "minecraft:rabbit_foot",
+    "minecraft:rabbit_hide",
+    "minecraft:phantom_membrane",
+    "minecraft:honeycomb",
+    "minecraft:raw_gold",
+    "minecraft:glowstone_dust",
+    "minecraft:redstone",
+    "minecraft:pufferfish",
+    "minecraft:honey_bottle",
+    "minecraft:golden_carrot",
+    "minecraft:golden_apple"
+  ]
+}

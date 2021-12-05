@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:ender_pearl",
+    "minecraft:blaze_powder",
+    "minecraft:emerald",
+    "minecraft:nether_wart",
+    "minecraft:prismarine_shard",
+    "minecraft:experience_bottle",
+    "minecraft:ender_eye",
+    "minecraft:blaze_rod"
+  ]
+}

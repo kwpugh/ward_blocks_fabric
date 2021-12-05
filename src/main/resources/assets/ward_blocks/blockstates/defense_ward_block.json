@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "": { "model": "ward_blocks:block/defense_ward_block" }
+    }
+}

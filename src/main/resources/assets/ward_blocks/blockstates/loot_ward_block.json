@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "": { "model": "ward_blocks:block/loot_ward_block" }
+    }
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "ward_blocks",
+  "version": "${version}",
+
+  "name": "Ward Blocks",
+  "description": "Adds blocks that provide various ward effects",
+  "authors": [
+    "Kevin Pugh"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/ward-blocks-fabric",
+    "issues": "https://github.com/kwpugh/Ward-Blocks/issues",
+    "sources": "https://github.com/kwpugh/Ward-Blocks"
+  },
+
+  "license": "MIT",
+  "icon": "assets/ward_blocks/textures/block/defense_block.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.kwpugh.ward_blocks.WardBlocks"
+    ]
+  },
+  "mixins": [
+    "ward_blocks.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.12.8",
+    "fabric": "*",
+    "java": ">=17",
+    "minecraft": "1.18.x",
+    "cloth-config2": "*"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}

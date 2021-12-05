@@ -1,0 +1,6 @@
+{
+    "variants": 
+    {
+        "": { "model": "ward_blocks:block/growth_ward_block" }
+    }
+}

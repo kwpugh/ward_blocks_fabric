@@ -1,0 +1,6 @@
+{
+    "variants": 
+    {
+        "": { "model": "ward_blocks:block/exp_ward_block" }
+    }
+}

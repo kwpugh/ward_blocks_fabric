@@ -1,0 +1,32 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:paper",
+    "minecraft:feather",
+    "minecraft:leather",
+    "minecraft:book",
+    "minecraft:bone",
+    "minecraft:cookie",
+    "minecraft:clay_ball",
+    "minecraft:egg",
+    "minecraft:ink_sac",
+    "minecraft:coal",
+    "minecraft:glow_ink_sac",
+    "minecraft:cocoa_beans",
+    "minecraft:bone_meal",
+    "minecraft:raw_iron",
+    "minecraft:raw_copper",
+    "minecraft:slime_ball",
+    "minecraft:bread",
+    "minecraft:cooked_porkchop",
+    "minecraft:cooked_rabbit",
+    "minecraft:cooked_mutton",
+    "minecraft:cooked_cod",
+    "minecraft:cooked_salmon",
+    "minecraft:cooked_beef",
+    "minecraft:cooked_chicken",
+    "minecraft:gunpowder",
+    "minecraft:apple",
+    "minecraft:rotten_flesh"
+  ]
+}
