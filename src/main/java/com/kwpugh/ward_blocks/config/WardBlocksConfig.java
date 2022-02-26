@@ -30,8 +30,8 @@ public class WardBlocksConfig extends PartitioningSerializer.GlobalData
 				+ "***********************"
 				+ "\nBlock Loot Chances"
 				+ "\n***********************")
-		public float growthBlockChance = 0.07F;
-		public float healthBlockChance = 0.10F;
+		public float growthBlockChance = 0.05F;
+		public float healthBlockChance = 0.05F;
 		public float defenseBlockChance = 0.08F;
 		public float expBlockChance = 0.05F;
 		public float attackBlockChance = 0.05F;
