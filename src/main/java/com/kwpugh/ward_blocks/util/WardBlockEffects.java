@@ -45,8 +45,9 @@ public class WardBlockEffects
 			targetEntity = iteratorLoot.next();
 
 			EntityType<?> entityType = targetEntity.getType();
-			boolean toKill = TagInit.LOOT_INCLUDE.contains(entityType);  // additional mobs to kill
-			boolean toSpare = TagInit.LOOT_EXCLUDE.contains(entityType);  // mobs that should be spared
+
+			boolean toKill = entityType.isIn(TagInit.LOOT_INCLUDE);
+			boolean toSpare = entityType.isIn(TagInit.LOOT_EXCLUDE);
 
 			// Have some fun with incoming projectiles
 			if(targetEntity instanceof ProjectileEntity)
@@ -101,8 +102,9 @@ public class WardBlockEffects
 		{
 			targetEntity = iteratorExp1.next();
 			EntityType<?> entityType = targetEntity.getType();
-			boolean toKill = TagInit.EXP_INCLUDE.contains(entityType);
-			boolean toSpare = TagInit.EXP_EXCLUDE.contains(entityType);
+
+			boolean toKill = entityType.isIn(TagInit.EXP_INCLUDE);
+			boolean toSpare = entityType.isIn(TagInit.EXP_EXCLUDE);
 
 			// Have some fun with incoming projectiles
 			if(targetEntity instanceof ProjectileEntity)
@@ -153,8 +155,9 @@ public class WardBlockEffects
 		{
 			targetEntity = iteratorAttack.next();
 			EntityType<?> entityType = targetEntity.getType();
-			boolean toKill = TagInit.ATTACK_INCLUDE.contains(entityType);
-			boolean toSpare = TagInit.ATTACK_EXCLUDE.contains(entityType);
+
+			boolean toKill = entityType.isIn(TagInit.ATTACK_INCLUDE);
+			boolean toSpare = entityType.isIn(TagInit.ATTACK_EXCLUDE);
 
 			// Have some fun with incoming projectiles
 			if(targetEntity instanceof ProjectileEntity)

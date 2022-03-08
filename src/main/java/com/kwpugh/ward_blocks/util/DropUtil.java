@@ -2,7 +2,11 @@ package com.kwpugh.ward_blocks.util;
 
 import com.kwpugh.ward_blocks.WardBlocks;
 import com.kwpugh.ward_blocks.init.TagInit;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.DeadCoralWallFanBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -13,6 +17,7 @@ public class DropUtil
     public static ItemStack getDrops()
     {
         Random random = new Random();
+
         double r = random.nextDouble();  //generate a random double between 0 and 1
 
         // Get the default item string from config and cast to ItemStack
@@ -25,19 +30,27 @@ public class DropUtil
         }
         else if(r >= WardBlocks.CONFIG.GENERAL.commonThreshold) // Common
         {
-            stack = TagInit.LOOTER_COMMON.getRandom(random).getDefaultStack();
+            stack = Registry.ITEM.getEntryList(TagInit.LOOTER_COMMON).flatMap((items) ->
+                    items.getRandom(random)).map((itemEntry) ->
+                    (itemEntry.value()).getDefaultStack()).orElse(stack);
         }
         else if(r >= WardBlocks.CONFIG.GENERAL.uncommonThreshold)  //Uncommon
         {
-            stack = TagInit.LOOTER_UNCOMMON.getRandom(random).getDefaultStack();
+            stack = Registry.ITEM.getEntryList(TagInit.LOOTER_UNCOMMON).flatMap((items) ->
+                    items.getRandom(random)).map((itemEntry) ->
+                    (itemEntry.value()).getDefaultStack()).orElse(stack);
         }
         else if(r >= WardBlocks.CONFIG.GENERAL.rareThreshold)  //Rare
         {
-            stack = TagInit.LOOTER_RARE.getRandom(random).getDefaultStack();
+            stack = Registry.ITEM.getEntryList(TagInit.LOOTER_RARE).flatMap((items) ->
+                    items.getRandom(random)).map((itemEntry) ->
+                    (itemEntry.value()).getDefaultStack()).orElse(stack);
         }
         else
         {
-            stack = TagInit.LOOTER_VERY_RARE.getRandom(random).getDefaultStack();
+            stack = Registry.ITEM.getEntryList(TagInit.LOOTER_VERY_RARE).flatMap((items) ->
+                    items.getRandom(random)).map((itemEntry) ->
+                    (itemEntry.value()).getDefaultStack()).orElse(stack);
         }
 
         return stack;

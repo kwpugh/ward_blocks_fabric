@@ -19,6 +19,13 @@ import net.minecraft.util.Identifier;
 
 public class LootTableInit
 {
+	static boolean enableGrowth = WardBlocks.CONFIG.GENERAL.enableGrowthBlock;
+	static boolean enableHealth = WardBlocks.CONFIG.GENERAL.enableHealthBlock;
+	static boolean enableDefense = WardBlocks.CONFIG.GENERAL.enableDefenseBlock;
+	static boolean enableExp = WardBlocks.CONFIG.GENERAL.enableExpBlock;
+	static boolean enableAttack = WardBlocks.CONFIG.GENERAL.enableAttackBlock;
+	static boolean enableLoot = WardBlocks.CONFIG.GENERAL.enableLootBlock;
+
 	static float growthChance = WardBlocks.CONFIG.GENERAL.growthBlockChance;
 	static float healthChance = WardBlocks.CONFIG.GENERAL.healthBlockChance;
 	static float defenseChance = WardBlocks.CONFIG.GENERAL.defenseBlockChance;
@@ -29,126 +36,134 @@ public class LootTableInit
 	private static final List<LootTableInsert> INSERTS = Lists.newArrayList();
 
 	public static void init()
-	{		
-		FabricLootPoolBuilder GROWTH_WARD_BLOCK = FabricLootPoolBuilder.builder()
-				.rolls(ConstantLootNumberProvider.create(1))
-				.with(ItemEntry.builder(BlockInit.GROWTH_WARD_BLOCK))
-				.withCondition(RandomChanceLootCondition.builder(growthChance).build());
+	{
+		if(enableGrowth)
+		{
+			FabricLootPoolBuilder GROWTH_WARD_BLOCK = FabricLootPoolBuilder.builder()
+					.rolls(ConstantLootNumberProvider.create(1))
+					.with(ItemEntry.builder(BlockInit.GROWTH_WARD_BLOCK))
+					.withCondition(RandomChanceLootCondition.builder(growthChance).build());
 
-		insert(new LootTableInsert(GROWTH_WARD_BLOCK,
-				new Identifier("minecraft", "chests/buried_treasure")
-		));
-		
-		LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, identifier, supplier, lootTableSetter) -> {
-			INSERTS.forEach(i->{
-				if(ArrayUtils.contains(i.tables, identifier))
-				{
-					i.insert(supplier);
-				}
-			});
-		}));
+			insert(new LootTableInsert(GROWTH_WARD_BLOCK,
+					new Identifier("minecraft", "chests/buried_treasure")
+			));
 
-		FabricLootPoolBuilder HEALTH_WARD_BLOCK = FabricLootPoolBuilder.builder()
-				.rolls(ConstantLootNumberProvider.create(1))
-				.with(ItemEntry.builder(BlockInit.HEALTH_WARD_BLOCK))
-				.withCondition(RandomChanceLootCondition.builder(healthChance).build());
+			LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, identifier, supplier, lootTableSetter) -> {
+				INSERTS.forEach(i->{
+					if(ArrayUtils.contains(i.tables, identifier))
+					{
+						i.insert(supplier);
+					}
+				});
+			}));
+		}
 
-		insert(new LootTableInsert(HEALTH_WARD_BLOCK,
-				new Identifier("minecraft", "chests/buried_treasure")
-		));
+		if(enableHealth)
+		{
+			FabricLootPoolBuilder HEALTH_WARD_BLOCK = FabricLootPoolBuilder.builder()
+					.rolls(ConstantLootNumberProvider.create(1))
+					.with(ItemEntry.builder(BlockInit.HEALTH_WARD_BLOCK))
+					.withCondition(RandomChanceLootCondition.builder(healthChance).build());
 
-		LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, identifier, supplier, lootTableSetter) -> {
-			INSERTS.forEach(i->{
-				if(ArrayUtils.contains(i.tables, identifier))
-				{
-					i.insert(supplier);
-				}
-			});
-		}));
+			insert(new LootTableInsert(HEALTH_WARD_BLOCK,
+					new Identifier("minecraft", "chests/buried_treasure")
+			));
 
+			LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, identifier, supplier, lootTableSetter) -> {
+				INSERTS.forEach(i->{
+					if(ArrayUtils.contains(i.tables, identifier))
+					{
+						i.insert(supplier);
+					}
+				});
+			}));
+		}
 
+		if(enableDefense)
+		{
+			FabricLootPoolBuilder DEFENSE_WARD_BLOCK = FabricLootPoolBuilder.builder()
+					.rolls(ConstantLootNumberProvider.create(1))
+					.with(ItemEntry.builder(BlockInit.DEFENSE_WARD_BLOCK))
+					.withCondition(RandomChanceLootCondition.builder(defenseChance).build());
 
-		FabricLootPoolBuilder DEFENSE_WARD_BLOCK = FabricLootPoolBuilder.builder()
-				.rolls(ConstantLootNumberProvider.create(1))
-				.with(ItemEntry.builder(BlockInit.DEFENSE_WARD_BLOCK))
-				.withCondition(RandomChanceLootCondition.builder(defenseChance).build());
+			insert(new LootTableInsert(DEFENSE_WARD_BLOCK,
+					new Identifier("minecraft", "chests/pillager_outpost")
+			));
 
-		insert(new LootTableInsert(DEFENSE_WARD_BLOCK,
-				new Identifier("minecraft", "chests/pillager_outpost")
-		));
-
-		LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, identifier, supplier, lootTableSetter) -> {
-			INSERTS.forEach(i->{
-				if(ArrayUtils.contains(i.tables, identifier))
-				{
-					i.insert(supplier);
-				}
-			});
-		}));
-
-
-
-
-		FabricLootPoolBuilder EXP_WARD_BLOCK = FabricLootPoolBuilder.builder()
-				.rolls(ConstantLootNumberProvider.create(1))
-				.with(ItemEntry.builder(BlockInit.EXP_WARD_BLOCK))
-				.withCondition(RandomChanceLootCondition.builder(expChance).build());
-
-		insert(new LootTableInsert(EXP_WARD_BLOCK,
-				new Identifier("minecraft", "chests/stronghold_library")
-		));
-
-		LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, identifier, supplier, lootTableSetter) -> {
-			INSERTS.forEach(i->{
-				if(ArrayUtils.contains(i.tables, identifier))
-				{
-					i.insert(supplier);
-				}
-			});
-		}));
+			LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, identifier, supplier, lootTableSetter) -> {
+				INSERTS.forEach(i->{
+					if(ArrayUtils.contains(i.tables, identifier))
+					{
+						i.insert(supplier);
+					}
+				});
+			}));
+		}
 
 
+		if(enableExp)
+		{
+			FabricLootPoolBuilder EXP_WARD_BLOCK = FabricLootPoolBuilder.builder()
+					.rolls(ConstantLootNumberProvider.create(1))
+					.with(ItemEntry.builder(BlockInit.EXP_WARD_BLOCK))
+					.withCondition(RandomChanceLootCondition.builder(expChance).build());
+
+			insert(new LootTableInsert(EXP_WARD_BLOCK,
+					new Identifier("minecraft", "chests/stronghold_library")
+			));
+
+			LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, identifier, supplier, lootTableSetter) -> {
+				INSERTS.forEach(i->{
+					if(ArrayUtils.contains(i.tables, identifier))
+					{
+						i.insert(supplier);
+					}
+				});
+			}));
+		}
+
+		if(enableAttack)
+		{
+			FabricLootPoolBuilder ATTACK_WARD_BLOCK = FabricLootPoolBuilder.builder()
+					.rolls(ConstantLootNumberProvider.create(1))
+					.with(ItemEntry.builder(BlockInit.ATTACK_WARD_BLOCK))
+					.withCondition(RandomChanceLootCondition.builder(attackChance).build());
+
+			insert(new LootTableInsert(ATTACK_WARD_BLOCK,
+					new Identifier("minecraft", "chests/bastion_treasure")
+			));
+
+			LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, identifier, supplier, lootTableSetter) -> {
+				INSERTS.forEach(i->{
+					if(ArrayUtils.contains(i.tables, identifier))
+					{
+						i.insert(supplier);
+					}
+				});
+			}));
+		}
 
 
-		FabricLootPoolBuilder ATTACK_WARD_BLOCK = FabricLootPoolBuilder.builder()
-				.rolls(ConstantLootNumberProvider.create(1))
-				.with(ItemEntry.builder(BlockInit.ATTACK_WARD_BLOCK))
-				.withCondition(RandomChanceLootCondition.builder(attackChance).build());
+		if(enableLoot)
+		{
+			FabricLootPoolBuilder LOOT_WARD_BLOCK = FabricLootPoolBuilder.builder()
+					.rolls(ConstantLootNumberProvider.create(1))
+					.with(ItemEntry.builder(BlockInit.LOOT_WARD_BLOCK))
+					.withCondition(RandomChanceLootCondition.builder(lootChance).build());
 
-		insert(new LootTableInsert(ATTACK_WARD_BLOCK,
-				new Identifier("minecraft", "chests/bastion_treasure")
-		));
+			insert(new LootTableInsert(LOOT_WARD_BLOCK,
+					new Identifier("minecraft", "chests/end_city_treasure")
+			));
 
-		LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, identifier, supplier, lootTableSetter) -> {
-			INSERTS.forEach(i->{
-				if(ArrayUtils.contains(i.tables, identifier))
-				{
-					i.insert(supplier);
-				}
-			});
-		}));
-
-
-
-
-		FabricLootPoolBuilder LOOT_WARD_BLOCK = FabricLootPoolBuilder.builder()
-				.rolls(ConstantLootNumberProvider.create(1))
-				.with(ItemEntry.builder(BlockInit.LOOT_WARD_BLOCK))
-				.withCondition(RandomChanceLootCondition.builder(lootChance).build());
-
-		insert(new LootTableInsert(LOOT_WARD_BLOCK,
-				new Identifier("minecraft", "chests/end_city_treasure")
-		));
-
-		LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, identifier, supplier, lootTableSetter) -> {
-			INSERTS.forEach(i->{
-				if(ArrayUtils.contains(i.tables, identifier))
-				{
-					i.insert(supplier);
-				}
-			});
-		}));
-		
+			LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, identifier, supplier, lootTableSetter) -> {
+				INSERTS.forEach(i->{
+					if(ArrayUtils.contains(i.tables, identifier))
+					{
+						i.insert(supplier);
+					}
+				});
+			}));
+		}
 	}
 
 	public static void insert(LootTableInsert insert)
