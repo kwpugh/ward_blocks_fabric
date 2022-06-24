@@ -2,21 +2,16 @@ package com.kwpugh.ward_blocks.util;
 
 import com.kwpugh.ward_blocks.WardBlocks;
 import com.kwpugh.ward_blocks.init.TagInit;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.DeadCoralWallFanBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.registry.Registry;
-
-import java.util.Random;
 
 public class DropUtil
 {
     public static ItemStack getDrops()
     {
-        Random random = new Random();
+        Random random = Random.create(); // AbstractRandom ??
 
         double r = random.nextDouble();  //generate a random double between 0 and 1
 

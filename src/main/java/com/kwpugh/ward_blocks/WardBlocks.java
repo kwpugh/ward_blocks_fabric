@@ -26,6 +26,6 @@ public class WardBlocks implements ModInitializer
     	BlockInit.registerBlocks();
     	BlockInit.registerBlockItems();
     	BlockInit.registerBlockEntities();
-    	LootTableInit.init();
+    	LootTableInit.registerLoot();
     }
 }

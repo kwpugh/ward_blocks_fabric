@@ -48,6 +48,7 @@ public class WardBlocksConfig extends PartitioningSerializer.GlobalData
 		public boolean enableYellowHearts = true;
 		public float healthYellowHearts = 20;
 		public int effectTickInterval = 8;
+		public boolean enableSinkingMobs = false;
 
 		@Comment("\n"
 				+ "\n"
@@ -110,5 +111,39 @@ public class WardBlocksConfig extends PartitioningSerializer.GlobalData
 		public double commonThreshold = .28;
 		public double uncommonThreshold = .12;
 		public double rareThreshold = .04;
+
+		@Comment("\n"
+				+ "\n"
+				+ "***********************"
+				+ "\nNo Spawn in Overworld Biomes"
+				+ "\n***********************")
+		public boolean enableNoMobOverworld =  false;
+
+		@Comment("\n"
+				+ "\n"
+				+ "***********************"
+				+ "\nNo Spawn in Specific Biomes"
+				+ "\n- requires datapack"
+				+ "\n***********************")
+		public boolean enableNoMobBiomes = false;
+
+		@Comment("\n"
+				+ "\n"
+				+ "***********************"
+				+ "\nOnly Spawn in Specific Biomes"
+				+ "\n- requires datapack"
+				+ "\n***********************")
+		public boolean enableOnlyMobBiomes = false;
+
+		@Comment("\n"
+				+ "\n"
+				+ "***********************"
+				+ "\nNo Spawn Near Specific Blocks"
+				+ "\n- requires datapack"
+				+ "\nNot recommended for servers"
+				+ "\n***********************")
+		public boolean enablenNoSpawnBlock = false;
+		public int noSpawnBlockHorizRadius = 10;
+		public int noSpawnBlockVertRadius = 5;
 	}
 }

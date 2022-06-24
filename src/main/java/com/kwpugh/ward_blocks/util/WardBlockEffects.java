@@ -13,6 +13,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.*;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -25,6 +26,7 @@ import net.minecraft.world.World;
 public class WardBlockEffects
 {
 	static boolean skippedEndermite = WardBlocks.CONFIG.GENERAL.skipNamedEndermite;
+	static boolean enableSinkingMobs = WardBlocks.CONFIG.GENERAL.enableSinkingMobs;
 
 	// Removes most mobs and spawns defined loot above block
 	public static void giveLoot(World world, BlockPos pos, int vRadius, int hRadius)
@@ -290,16 +292,17 @@ public class WardBlockEffects
 	{
 		// Scan for players in range
 		Box playerBox = (new Box(pos)).expand(hRadius, vRadius, hRadius);
+
 		List<ServerPlayerEntity> listHealth = world.getNonSpectatingEntities(ServerPlayerEntity.class, playerBox);
 		Iterator<ServerPlayerEntity> iteratorHealth = listHealth.iterator();
-		
+
 		ServerPlayerEntity targetPlayer;
-		
-		// Cycle through list and give effects to players				
+
+		// Cycle through list and give effects to players
 		while(iteratorHealth.hasNext())
 		{
 			targetPlayer = iteratorHealth.next();
-			
+
 			StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.REGENERATION, effectTickInterval, effectLevel, false, false);
 			StatusEffectInstance effect2 = new StatusEffectInstance(StatusEffects.SATURATION, effectTickInterval, effectLevel, false, false);
 
@@ -309,6 +312,25 @@ public class WardBlockEffects
 			if(enableExtraHearts)
 			{
 				giveGreaterExtraHearts(world, targetPlayer, yellowHearts);
+			}
+		}
+
+		// if enabled in config, cycle through list of mobs and "sink" them
+		if(enableSinkingMobs)
+		{
+			MobEntity targetMob;
+			List<MobEntity> listHealth2 = world.getNonSpectatingEntities(MobEntity.class, playerBox);
+			Iterator<MobEntity> iteratorHealth2 = listHealth2.iterator();
+
+			while(iteratorHealth2.hasNext())
+			{
+				targetMob = iteratorHealth2.next();
+
+				if(targetMob instanceof HostileEntity)
+				{
+					targetMob.setPos(targetMob.getX(), targetMob.getY()-0.1D, targetMob.getZ());
+					break;
+				}
 			}
 		}
 	}
