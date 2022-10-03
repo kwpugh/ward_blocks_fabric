@@ -1,8 +1,5 @@
 package com.kwpugh.ward_blocks.util;
 
-import java.util.Iterator;
-import java.util.List;
-
 import com.kwpugh.ward_blocks.WardBlocks;
 import com.kwpugh.ward_blocks.init.TagInit;
 import net.minecraft.block.*;
@@ -13,7 +10,6 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.*;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -22,6 +18,9 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class WardBlockEffects
 {
@@ -50,14 +49,6 @@ public class WardBlockEffects
 
 			boolean toKill = entityType.isIn(TagInit.LOOT_INCLUDE);
 			boolean toSpare = entityType.isIn(TagInit.LOOT_EXCLUDE);
-
-			// Have some fun with incoming projectiles
-			if(targetEntity instanceof ProjectileEntity)
-			{
-				ProjectileEntity projectile = (ProjectileEntity) targetEntity;
-				world.spawnEntity(new ItemEntity(world, projectile.getX(), projectile.getY(), projectile.getZ(), Items.FEATHER.getDefaultStack()));
-				projectile.remove(Entity.RemovalReason.DISCARDED);
-			}
 
 			// Make sure not to work on Dragon, Wither, or excluded
 			if(targetEntity instanceof EnderDragonEntity ||
@@ -202,19 +193,19 @@ public class WardBlockEffects
 
 			if (world.getTime() % (baseTickDelay) == 0)
 			{
-				if (   (block instanceof CropBlock) ||  //Beets Carrots Potatoes
+				if(   (block instanceof CropBlock) ||  //Beets Carrots Potatoes
 						block instanceof BambooSaplingBlock ||
 						block instanceof BambooBlock ||
 						block instanceof CocoaBlock ||
 						block instanceof StemBlock ||
 						block instanceof SweetBerryBushBlock ||
 						block instanceof FungusBlock ||
-						block instanceof SaplingBlock ||
-						block instanceof SeaPickleBlock ||
+						block instanceof SaplingBlock  || //all sapling
 						block instanceof KelpBlock ||
 						block instanceof KelpPlantBlock ||
-						block instanceof AzaleaBlock
-				)
+						block instanceof AzaleaBlock ||
+						block instanceof SmallDripleafBlock ||
+						block instanceof BigDripleafStemBlock)
 				{
 					Fertilizable fertilizable = (Fertilizable)blockstate.getBlock();
 					if (fertilizable.isFertilizable(world, target, blockstate, world.isClient))
@@ -238,8 +229,9 @@ public class WardBlockEffects
 
 				if(blockToTick instanceof SugarCaneBlock ||
 						blockToTick instanceof CactusBlock ||
-						blockToTick instanceof ChorusFlowerBlock
-				)
+						blockToTick instanceof BuddingAmethystBlock ||
+						blockToTick instanceof NetherWartBlock ||
+						blockToTick instanceof ChorusFlowerBlock)
 				{
 					blockToTick.randomTick(blockstate2, (ServerWorld) world, tickTarget, world.random);
 				}
