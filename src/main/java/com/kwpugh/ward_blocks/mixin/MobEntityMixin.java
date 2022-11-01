@@ -47,7 +47,7 @@ public abstract class MobEntityMixin
         }
 
         // Use values in tag to disable mob spawning within a specified distance of 1 or more blocks
-        // USe with caution since this causes each mob to search the box for a specified block(s)
+        // Use with caution since this causes each mob to search the box for a specified block(s)
         if(WardBlocks.CONFIG.GENERAL.enablenNoSpawnBlock)
         {
             for (BlockPos targetPos : BlockPos.iterateOutwards(pos, WardBlocks.CONFIG.GENERAL.noSpawnBlockHorizRadius, WardBlocks.CONFIG.GENERAL.noSpawnBlockVertRadius, WardBlocks.CONFIG.GENERAL.noSpawnBlockHorizRadius))

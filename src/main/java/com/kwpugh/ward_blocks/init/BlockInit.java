@@ -41,12 +41,12 @@ public class BlockInit
 	
 	public static void registerBlockItems()
 	{
-		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "growth_ward_block"), new BlockItem(GROWTH_WARD_BLOCK, new Item.Settings().maxCount(1).group(WardBlocks.WARD_BLOCKS_GROUP)));
-		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "health_ward_block"), new BlockItem(HEALTH_WARD_BLOCK, new Item.Settings().maxCount(1).group(WardBlocks.WARD_BLOCKS_GROUP)));
-		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "defense_ward_block"), new BlockItem(DEFENSE_WARD_BLOCK, new Item.Settings().maxCount(1).group(WardBlocks.WARD_BLOCKS_GROUP)));
-		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "exp_ward_block"), new BlockItem(EXP_WARD_BLOCK, new Item.Settings().maxCount(1).group(WardBlocks.WARD_BLOCKS_GROUP)));
-		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "attack_ward_block"), new BlockItem(ATTACK_WARD_BLOCK, new Item.Settings().maxCount(1).group(WardBlocks.WARD_BLOCKS_GROUP)));
-		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "loot_ward_block"), new BlockItem(LOOT_WARD_BLOCK, new Item.Settings().maxCount(1).group(WardBlocks.WARD_BLOCKS_GROUP)));
+		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "growth_ward_block"), new BlockItem(GROWTH_WARD_BLOCK, new Item.Settings().maxCount(1)));
+		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "health_ward_block"), new BlockItem(HEALTH_WARD_BLOCK, new Item.Settings().maxCount(1)));
+		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "defense_ward_block"), new BlockItem(DEFENSE_WARD_BLOCK, new Item.Settings().maxCount(1)));
+		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "exp_ward_block"), new BlockItem(EXP_WARD_BLOCK, new Item.Settings().maxCount(1)));
+		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "attack_ward_block"), new BlockItem(ATTACK_WARD_BLOCK, new Item.Settings().maxCount(1)));
+		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "loot_ward_block"), new BlockItem(LOOT_WARD_BLOCK, new Item.Settings().maxCount(1)));
 	}
 	
 	public static void registerBlockEntities()
