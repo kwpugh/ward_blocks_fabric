@@ -11,6 +11,7 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registries;
 import net.minecraft.util.registry.Registry;
 
 public class BlockInit
@@ -31,31 +32,31 @@ public class BlockInit
 	
 	public static void registerBlocks()
 	{
-		Registry.register(Registry.BLOCK, new Identifier(WardBlocks.MOD_ID, "growth_ward_block"), GROWTH_WARD_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier(WardBlocks.MOD_ID, "health_ward_block"), HEALTH_WARD_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier(WardBlocks.MOD_ID, "defense_ward_block"), DEFENSE_WARD_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier(WardBlocks.MOD_ID, "exp_ward_block"), EXP_WARD_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier(WardBlocks.MOD_ID, "attack_ward_block"), ATTACK_WARD_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier(WardBlocks.MOD_ID, "loot_ward_block"), LOOT_WARD_BLOCK);
+		Registry.register(Registries.BLOCK, new Identifier(WardBlocks.MOD_ID, "growth_ward_block"), GROWTH_WARD_BLOCK);
+		Registry.register(Registries.BLOCK, new Identifier(WardBlocks.MOD_ID, "health_ward_block"), HEALTH_WARD_BLOCK);
+		Registry.register(Registries.BLOCK, new Identifier(WardBlocks.MOD_ID, "defense_ward_block"), DEFENSE_WARD_BLOCK);
+		Registry.register(Registries.BLOCK, new Identifier(WardBlocks.MOD_ID, "exp_ward_block"), EXP_WARD_BLOCK);
+		Registry.register(Registries.BLOCK, new Identifier(WardBlocks.MOD_ID, "attack_ward_block"), ATTACK_WARD_BLOCK);
+		Registry.register(Registries.BLOCK, new Identifier(WardBlocks.MOD_ID, "loot_ward_block"), LOOT_WARD_BLOCK);
 	}
 	
 	public static void registerBlockItems()
 	{
-		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "growth_ward_block"), new BlockItem(GROWTH_WARD_BLOCK, new Item.Settings().maxCount(1)));
-		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "health_ward_block"), new BlockItem(HEALTH_WARD_BLOCK, new Item.Settings().maxCount(1)));
-		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "defense_ward_block"), new BlockItem(DEFENSE_WARD_BLOCK, new Item.Settings().maxCount(1)));
-		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "exp_ward_block"), new BlockItem(EXP_WARD_BLOCK, new Item.Settings().maxCount(1)));
-		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "attack_ward_block"), new BlockItem(ATTACK_WARD_BLOCK, new Item.Settings().maxCount(1)));
-		Registry.register(Registry.ITEM, new Identifier(WardBlocks.MOD_ID, "loot_ward_block"), new BlockItem(LOOT_WARD_BLOCK, new Item.Settings().maxCount(1)));
+		Registry.register(Registries.ITEM, new Identifier(WardBlocks.MOD_ID, "growth_ward_block"), new BlockItem(GROWTH_WARD_BLOCK, new Item.Settings().maxCount(1)));
+		Registry.register(Registries.ITEM, new Identifier(WardBlocks.MOD_ID, "health_ward_block"), new BlockItem(HEALTH_WARD_BLOCK, new Item.Settings().maxCount(1)));
+		Registry.register(Registries.ITEM, new Identifier(WardBlocks.MOD_ID, "defense_ward_block"), new BlockItem(DEFENSE_WARD_BLOCK, new Item.Settings().maxCount(1)));
+		Registry.register(Registries.ITEM, new Identifier(WardBlocks.MOD_ID, "exp_ward_block"), new BlockItem(EXP_WARD_BLOCK, new Item.Settings().maxCount(1)));
+		Registry.register(Registries.ITEM, new Identifier(WardBlocks.MOD_ID, "attack_ward_block"), new BlockItem(ATTACK_WARD_BLOCK, new Item.Settings().maxCount(1)));
+		Registry.register(Registries.ITEM, new Identifier(WardBlocks.MOD_ID, "loot_ward_block"), new BlockItem(LOOT_WARD_BLOCK, new Item.Settings().maxCount(1)));
 	}
 	
 	public static void registerBlockEntities()
 	{
-		GROWTH_WARD_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "ward_blocks:growth_ward_block", FabricBlockEntityTypeBuilder.create(GrowthWardBlockEntity::new, GROWTH_WARD_BLOCK).build(null));
-		HEALTH_WARD_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "ward_blocks:health_ward_block", FabricBlockEntityTypeBuilder.create(HealthWardBlockEntity::new, HEALTH_WARD_BLOCK).build(null));
-		DEFENSE_WARD_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "ward_blocks:defense_ward_block", FabricBlockEntityTypeBuilder.create(DefenseWardBlockEntity::new, DEFENSE_WARD_BLOCK).build(null));
-		EXP_WARD_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "ward_blocks:exp_ward_block", FabricBlockEntityTypeBuilder.create(ExpWardBlockEntity::new, EXP_WARD_BLOCK).build(null));
-		ATTACK_WARD_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "ward_blocks:attack_ward_block", FabricBlockEntityTypeBuilder.create(AttackWardBlockEntity::new, ATTACK_WARD_BLOCK).build(null));
-		LOOT_WARD_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "ward_blocks:loot_ward_block", FabricBlockEntityTypeBuilder.create(LootWardBlockEntity::new, LOOT_WARD_BLOCK).build(null));
+		GROWTH_WARD_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, "ward_blocks:growth_ward_block", FabricBlockEntityTypeBuilder.create(GrowthWardBlockEntity::new, GROWTH_WARD_BLOCK).build(null));
+		HEALTH_WARD_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, "ward_blocks:health_ward_block", FabricBlockEntityTypeBuilder.create(HealthWardBlockEntity::new, HEALTH_WARD_BLOCK).build(null));
+		DEFENSE_WARD_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, "ward_blocks:defense_ward_block", FabricBlockEntityTypeBuilder.create(DefenseWardBlockEntity::new, DEFENSE_WARD_BLOCK).build(null));
+		EXP_WARD_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, "ward_blocks:exp_ward_block", FabricBlockEntityTypeBuilder.create(ExpWardBlockEntity::new, EXP_WARD_BLOCK).build(null));
+		ATTACK_WARD_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, "ward_blocks:attack_ward_block", FabricBlockEntityTypeBuilder.create(AttackWardBlockEntity::new, ATTACK_WARD_BLOCK).build(null));
+		LOOT_WARD_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, "ward_blocks:loot_ward_block", FabricBlockEntityTypeBuilder.create(LootWardBlockEntity::new, LOOT_WARD_BLOCK).build(null));
 	}
 }

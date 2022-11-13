@@ -15,23 +15,35 @@ public class WardBlocksGroup
         // force class run when we want
     }
 
-    public static final ItemGroup WARD_BLOCKS_GROUP = new FabricItemGroup(new Identifier(WardBlocks.MOD_ID, "ward_blocks_group"))
-    {
-        @Override
-        public ItemStack createIcon()
-        {
-            return new ItemStack(BlockInit.EXP_WARD_BLOCK);
-        }
+    private static final ItemGroup WARD_BLOCKS_GROUP = FabricItemGroup.builder(new Identifier(WardBlocks.MOD_ID, "ward_blocks_group"))
+            .icon(() -> new ItemStack(BlockInit.EXP_WARD_BLOCK))
+            .entries((enabledFeatures, entries, operatorEnabled) -> {
+                entries.add(BlockInit.GROWTH_WARD_BLOCK);
+                entries.add(BlockInit.HEALTH_WARD_BLOCK);
+                entries.add(BlockInit.DEFENSE_WARD_BLOCK);
+                entries.add(BlockInit.EXP_WARD_BLOCK);
+                entries.add(BlockInit.ATTACK_WARD_BLOCK);
+                entries.add(BlockInit.LOOT_WARD_BLOCK);
+            })
+            .build();
 
-        @Override
-        protected void addItems(FeatureSet enabledFeatures, Entries entries)
-        {
-            entries.add(BlockInit.GROWTH_WARD_BLOCK);
-            entries.add(BlockInit.HEALTH_WARD_BLOCK);
-            entries.add(BlockInit.DEFENSE_WARD_BLOCK);
-            entries.add(BlockInit.EXP_WARD_BLOCK);
-            entries.add(BlockInit.ATTACK_WARD_BLOCK);
-            entries.add(BlockInit.LOOT_WARD_BLOCK);
-        }
-    };
+//    public static final ItemGroup WARD_BLOCKS_GROUP = new FabricItemGroup(new Identifier(WardBlocks.MOD_ID, "ward_blocks_group"))
+//    {
+//        @Override
+//        public ItemStack createIcon()
+//        {
+//            return new ItemStack(BlockInit.EXP_WARD_BLOCK);
+//        }
+//
+//        @Override
+//        protected void addItems(FeatureSet enabledFeatures, Entries entries, boolean hasPermission)
+//        {
+//            entries.add(BlockInit.GROWTH_WARD_BLOCK);
+//            entries.add(BlockInit.HEALTH_WARD_BLOCK);
+//            entries.add(BlockInit.DEFENSE_WARD_BLOCK);
+//            entries.add(BlockInit.EXP_WARD_BLOCK);
+//            entries.add(BlockInit.ATTACK_WARD_BLOCK);
+//            entries.add(BlockInit.LOOT_WARD_BLOCK);
+//        }
+//    };
 }
