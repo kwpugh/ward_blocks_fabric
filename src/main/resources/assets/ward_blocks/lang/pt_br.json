@@ -1,0 +1,28 @@
+{
+  "item.ward_blocks.health_ward_block": "Bloco de Vigilância Sanitária",
+
+  "block.ward_blocks.health_ward_block": "Bloco de Vigilância Sanitária",
+  "block.ward_blocks.health_ward_block.tip1": "Fornece efeitos de regeneração e saturação",
+
+  "item.ward_blocks.growth_ward_block": "Bloco de proteção de crescimento",
+  "block.ward_blocks.growth_ward_block": "Bloco de proteção de crescimento",
+  "block.ward_blocks.growth_ward_block.tip1": "Acelera o crescimento de cultivos próximos",
+
+  "item.ward_blocks.attack_ward_block": "Bloqueio de proteção de ataque",
+  "block.ward_blocks.attack_ward_block": "Bloqueio de proteção de ataque",
+  "block.ward_blocks.attack_ward_block.tip1": "Causa dano quando mobs hostis chegam ao alcance",
+
+  "item.ward_blocks.defense_ward_block": "Bloco de proteção de defesa",
+  "block.ward_blocks.defense_ward_block": "Bloco de proteção de defesa",
+  "block.ward_blocks.defense_ward_block.tip1": "Fornece efeitos de força e resistência",
+
+  "item.ward_blocks.exp_ward_block": "Bloco de Sentinela de Experiência",
+  "block.ward_blocks.exp_ward_block": "Bloco de Sentinela de Experiência",
+  "block.ward_blocks.exp_ward_block.tip1": "Mata mobs próximos e deixa xp perto do bloco",
+
+  "item.ward_blocks.loot_ward_block": "Saque de Ward Bloco",
+  "block.ward_blocks.loot_ward_block": "Saque de Ward Bloco",
+  "block.ward_blocks.loot_ward_block.tip1": "Mata mobs próximos e deixa saque perto do bloco",
+
+  "itemGroup.ward_blocks.ward_blocks_group": "Blocos de proteção"
+}

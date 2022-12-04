@@ -5,7 +5,7 @@ import com.kwpugh.ward_blocks.init.TagInit;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.util.registry.Registries;
+import net.minecraft.registry.Registries;
 
 public class DropUtil
 {
